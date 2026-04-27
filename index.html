@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJP Personalized Poster Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+Gujarati:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Landing Page Section -->
+        <section id="landing-page" class="active">
+            <div class="hero-banner">
+                <img src="assets/template.png" alt="BJP Campaign Banner" id="hero-img">
+                <div class="hero-overlay">
+                    <button id="start-btn" class="btn-primary">તમારું પોસ્ટર બનાવો</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section id="form-page">
+            <div class="form-container">
+                <button class="back-btn" onclick="showSection('landing-page')">&larr; પાછા જાઓ</button>
+                <h2>તમારું પોસ્ટર બનાવો</h2>
+                <div class="form-group">
+                    <label for="user-name">તમારું પૂરું નામ</label>
+                    <input type="text" id="user-name" placeholder="તમારું નામ લખો" maxlength="30">
+                </div>
+                <div class="form-group">
+                    <label for="user-photo">તમારો ફોટો અપલોડ કરો</label>
+                    <div class="upload-area" id="drop-zone">
+                        <input type="file" id="user-photo" accept="image/*" hidden>
+                        <div class="upload-placeholder">
+                            <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+                            <p>ફોટો પસંદ કરવા માટે અહીં ક્લિક કરો</p>
+                            <span id="file-name">કોઈ ફાઇલ પસંદ નથી કરી</span>
+                        </div>
+                    </div>
+                </div>
+                <button id="generate-btn" class="btn-primary">પોસ્ટર બનાવો</button>
+            </div>
+        </section>
+
+        <!-- Loading Section -->
+        <section id="loading-page">
+            <div class="loading-container">
+                <div class="lotus-loader">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bharatiya_Janata_Party_logo.svg" alt="BJP Logo">
+                </div>
+                <h2>તમારું પોસ્ટર બની રહ્યું છે...</h2>
+                <div class="progress-wrapper">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <p id="slogan-text">સૌનો સાથ, સૌનો વિકાસ...</p>
+                <div class="timer">અંદાજે 15 સેકન્ડ બાકી છે</div>
+            </div>
+        </section>
+
+        <!-- Result Section -->
+        <section id="result-page">
+            <div class="result-container">
+                <h2>તમારું ભાજપ કેમ્પેઈન પોસ્ટર</h2>
+                <div class="canvas-wrapper">
+                    <canvas id="poster-canvas"></canvas>
+                </div>
+                <div class="action-buttons">
+                    <button id="download-btn" class="btn-primary">પોસ્ટર ડાઉનલોડ કરો</button>
+                    <button id="reset-btn" class="btn-secondary">બીજું પોસ્ટર બનાવો</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Hidden Template Image for Canvas -->
+    <img id="template-img" src="assets/template.png" style="display: none;">
+
+    <script src="script.js"></script>
+</body>
+</html>
